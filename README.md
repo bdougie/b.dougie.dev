@@ -1,6 +1,6 @@
 # bdougie.dev - Personal Website
 
-This is the source code for [bdougie.dev](https://b.dougie.dev), a personal website built with [Astro](https://astro.build).
+This is the source code for [bdougie.dev](https://b.dougie.dev), a social link website built with [Astro](https://astro.build).
 
 ## 🚀 Getting Started
 
