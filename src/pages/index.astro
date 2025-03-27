@@ -296,8 +296,17 @@ import Layout from '../layouts/Layout.astro';
     dropdownTriggers.forEach(trigger => {
       trigger.addEventListener("click", function(e) {
         e.preventDefault();
-        const dropdown = this.nextElementSibling;
-        dropdown.classList.toggle("active");
+        const clickedDropdown = this.nextElementSibling;
+        
+        // Close all other dropdowns
+        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+          if (dropdown !== clickedDropdown) {
+            dropdown.classList.remove("active");
+          }
+        });
+        
+        // Toggle the clicked dropdown
+        clickedDropdown.classList.toggle("active");
       });
     });
     
