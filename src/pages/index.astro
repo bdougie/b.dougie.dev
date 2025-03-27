@@ -77,14 +77,20 @@ import Layout from '../layouts/Layout.astro';
       <nav class="footer-links">
         <div class="dropdown">
           <button class="dropdown-trigger">podcasts</button>
-          <div class="dropdown-content" id="podcast-dropdown">
+          <div class="dropdown-content podcast-dropdown" id="podcast-dropdown">
             <a href="https://www.youtube.com/playlist?list=PLHyZ0Wz_A44VR4BXl_JOWSecQeWcZ-kS3" target="_blank" rel="noopener noreferrer">The Secret Sauce</a>
             <a href="https://thisdevelopingstory.com/" target="_blank" rel="noopener noreferrer">This Developing Story</a>
             <a href="https://www.heavybit.com/library/podcasts/open-source-ready" target="_blank" rel="noopener noreferrer">Open Source Ready</a>
           </div>
         </div>
         <span class="separator">•</span>
-        <a href="https://bdougie.substack.com" target="_blank" rel="noopener noreferrer">newsletter</a>
+        <div class="dropdown">
+          <button class="dropdown-trigger">newsletter</button>
+          <div class="dropdown-content" id="newsletter-dropdown">
+            <a href="https://opensourceready.substack.com/" target="_blank" rel="noopener noreferrer">Open Source Ready</a>
+            <a href="https://bdougie.substack.com/" target="_blank" rel="noopener noreferrer">This Developing Story</a>
+          </div>
+        </div>
         <span class="separator">•</span>
         <div class="dropdown">
           <button class="dropdown-trigger">youtube</button>
@@ -213,6 +219,7 @@ import Layout from '../layouts/Layout.astro';
     transform: translateX(-50%) translateY(5px);
     background-color: hsl(0 0% 100% / 97%);
     min-width: 8rem;
+    white-space: nowrap;
     border-radius: 0.5rem;
     border: 1px solid hsl(240 3.7% 15.9%);
     padding: 0.5rem;
@@ -221,6 +228,10 @@ import Layout from '../layouts/Layout.astro';
                 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
     transition: all 0.1s ease-in-out;
     z-index: 50;
+  }
+
+  .podcast-dropdown {
+    min-width: 12rem;
   }
 
   .dropdown-content a {
