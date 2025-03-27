@@ -23,6 +23,7 @@ The site will be available at `http://localhost:4321`.
 ## 📝 Project Overview
 
 This is a simple personal website that includes:
+
 - A profile section with avatar
 - Social media links
 - Footer with additional resources
@@ -31,13 +32,13 @@ This is a simple personal website that includes:
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `npm install`       | Installs dependencies                            |
+| `npm run dev`       | Starts local dev server at `localhost:4321`      |
+| `npm run build`     | Build your production site to `./dist/`          |
+| `npm run preview`   | Preview your build locally, before deploying     |
+| `npm run astro ...` | Run CLI commands like `astro add`, `astro check` |
 
 ## 🔗 Quick Links
 
@@ -46,5 +47,6 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Learn More
 
 This site is built with Astro. To learn more about Astro, check out:
+
 - [Astro documentation](https://docs.astro.build)
 - [Astro Discord server](https://astro.build/chat)
