@@ -40,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
   <svg xmlns="http://www.w3.org/2000/svg"  stroke="currentColor"width="24" height="24" viewBox="0 0 600 530" fill="none">
     <path d="M135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="currentColor"/>
   </svg>
-  
+
 </a>
 
 <!-- Substack -->
@@ -78,6 +78,14 @@ import Layout from '../layouts/Layout.astro';
         <a href="https://www.heavybit.com/library/podcasts/open-source-ready" target="_blank" rel="noopener noreferrer">podcast</a>
         <span class="separator">•</span>
         <a href="https://bdougie.substack.com" target="_blank" rel="noopener noreferrer">newsletter</a>
+        <span class="separator">•</span>
+        <div class="dropdown">
+          <button class="dropdown-trigger">youtube</button>
+          <div class="dropdown-content" id="youtube-dropdown">
+            <a href="https://youtube.com/@bdougie" target="_blank" rel="noopener noreferrer">@bdougie</a>
+            <a href="https://youtube.com/@opensauced" target="_blank" rel="noopener noreferrer">@opensauced</a>
+          </div>
+        </div>
         <span class="separator">•</span>
         <a href="https://briandouglas.me" target="_blank" rel="noopener noreferrer">blog</a>
       </nav>
@@ -162,4 +170,123 @@ import Layout from '../layouts/Layout.astro';
     color: white;
     opacity: 0.8;
   }
+
+  /* Dropdown styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-trigger {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .dropdown-trigger:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .dropdown-content {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background-color: hsl(0 0% 100% / 97%);
+    min-width: 8rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(240 3.7% 15.9%);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+                0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+    transition: all 0.1s ease-in-out;
+    z-index: 50;
+  }
+
+  .dropdown-content a {
+    color: hsl(240 10% 3.9%);
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    line-height: 1.25rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: hsl(240 5.9% 90%);
+    color: hsl(240 10% 3.9%);
+  }
+
+  .dropdown-content.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .dropdown-content {
+      background-color: hsl(240 10% 3.9%);
+      border-color: hsl(240 3.7% 15.9%);
+    }
+
+    .dropdown-content a {
+      color: hsl(0 0% 98%);
+    }
+
+    .dropdown-content a:hover {
+      background-color: hsl(240 3.7% 15.9%);
+      color: hsl(0 0% 98%);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .dropdown-content {
+      position: fixed;
+      bottom: 6rem;
+      left: 1rem;
+      right: 1rem;
+      width: auto;
+      transform: translateY(5px);
+    }
+    
+    .dropdown-content.active {
+      transform: translateY(0);
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const dropdownTrigger = document.querySelector(".dropdown-trigger");
+    const youtubeDropdown = document.getElementById("youtube-dropdown");
+    
+    // Toggle dropdown when clicking the trigger
+    dropdownTrigger.addEventListener("click", function(e) {
+      e.preventDefault();
+      youtubeDropdown.classList.toggle("active");
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(e) {
+      if (!e.target.matches('.dropdown-trigger') && !e.target.closest('.dropdown-content')) {
+        youtubeDropdown.classList.remove("active");
+      }
+    });
+  });
+</script>
