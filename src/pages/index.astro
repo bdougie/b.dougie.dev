@@ -75,7 +75,14 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <footer>
       <nav class="footer-links">
-        <a href="https://www.heavybit.com/library/podcasts/open-source-ready" target="_blank" rel="noopener noreferrer">podcast</a>
+        <div class="dropdown">
+          <button class="dropdown-trigger">podcasts</button>
+          <div class="dropdown-content" id="podcast-dropdown">
+            <a href="https://www.youtube.com/playlist?list=PLHyZ0Wz_A44VR4BXl_JOWSecQeWcZ-kS3" target="_blank" rel="noopener noreferrer">The Secret Sauce</a>
+            <a href="https://thisdevelopingstory.com/" target="_blank" rel="noopener noreferrer">This Developing Story</a>
+            <a href="https://www.heavybit.com/library/podcasts/open-source-ready" target="_blank" rel="noopener noreferrer">Open Source Ready</a>
+          </div>
+        </div>
         <span class="separator">•</span>
         <a href="https://bdougie.substack.com" target="_blank" rel="noopener noreferrer">newsletter</a>
         <span class="separator">•</span>
@@ -273,19 +280,22 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const dropdownTrigger = document.querySelector(".dropdown-trigger");
-    const youtubeDropdown = document.getElementById("youtube-dropdown");
+    const dropdownTriggers = document.querySelectorAll(".dropdown-trigger");
     
-    // Toggle dropdown when clicking the trigger
-    dropdownTrigger.addEventListener("click", function(e) {
-      e.preventDefault();
-      youtubeDropdown.classList.toggle("active");
+    dropdownTriggers.forEach(trigger => {
+      trigger.addEventListener("click", function(e) {
+        e.preventDefault();
+        const dropdown = this.nextElementSibling;
+        dropdown.classList.toggle("active");
+      });
     });
     
-    // Close dropdown when clicking outside
+    // Close dropdowns when clicking outside
     document.addEventListener("click", function(e) {
       if (!e.target.matches('.dropdown-trigger') && !e.target.closest('.dropdown-content')) {
-        youtubeDropdown.classList.remove("active");
+        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+          dropdown.classList.remove("active");
+        });
       }
     });
   });
