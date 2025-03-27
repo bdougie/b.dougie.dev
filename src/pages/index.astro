@@ -9,52 +9,113 @@ import Layout from '../layouts/Layout.astro';
       <h1>bdougie</h1>
       <div class="social-links">
         <!-- GitHub -->
-        <a href="https://github.com/bdougie" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        <a href="https://github.com/bdougie" class="social-link" aria-label="GitHub">
+          <span class="tooltip">GitHub</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            ></path>
           </svg>
         </a>
-
-        <!-- YouTube -->
-        <a href="https://youtube.com/@bdougie" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="YouTube">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
-            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-          </svg>
-        </a>
-
         <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/brianldouglas/" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <a
+          href="https://www.linkedin.com/in/brianldouglas/"
+          class="social-link"
+          aria-label="LinkedIn"
+        >
+          <span class="tooltip">LinkedIn</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather"
+          >
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-
         <!-- Bluesky -->
-        <a href="https://bsky.app/profile/bizza.pizza" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="Bluesky">
-          <svg xmlns="http://www.w3.org/2000/svg"  stroke="currentColor"width="24" height="24" viewBox="0 0 600 530" fill="none">
-            <path d="M135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="currentColor"/>
+        <a href="https://bsky.app/profile/bizza.pizza" class="social-link" aria-label="Bluesky">
+          <span class="tooltip">Bluesky</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            width="24"
+            height="24"
+            viewBox="0 0 600 530"
+            fill="none"
+          >
+            <path
+              d="M135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"
+              fill="currentColor"></path>
           </svg>
-          
         </a>
-
         <!-- Substack -->
-        <a href="https://bdougie.substack.com" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="Substack">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
-            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-            <path d="M2 8h20"></path>
-            <path d="M12 12h-3"></path>
-            <path d="M12 16h-3"></path>
-            <path d="M17 12h-1"></path>
-            <path d="M17 16h-1"></path>
-          </svg>
+        <a href="https://bdougie.substack.com" class="social-link" aria-label="Substack">
+          <span class="tooltip">Substack</span>
+          <svg
+            width="24"
+            height="24"
+            stroke="currentColor"
+            stroke-width="3"
+            viewBox="0 0 48 48"
+            id="a"
+            xmlns="http://www.w3.org/2000/svg"
+            ><defs
+              ><style>
+                .b {
+                  fill: none;
+                  stroke: #fffff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                }
+              </style></defs
+            ><path
+              class="b"
+              d="m40.0248,10.0817v-4.5814c-.3229,0-.7411-.0004-1.6553-.0004l-28.9669.0004c-.9142,0-1.318,0-1.6553,0v4.5814c.2164,0,.7411.0005,1.6553.0005l28.9669-.0005c.9142,0,1.4122,0,1.6553,0Z"
+            ></path><path
+              class="b"
+              d="m40.0248,18.3503v-4.5814H9.4025c-.9142,0-1.3777,0-1.6553,0v4.5814c.2646,0,.7411,0,1.6553,0h30.6223Z"
+            ></path><path
+              class="b"
+              d="m40.2557,42.4999v-20.1821c0-.1633-.9724-.1077-1.8866-.1077H9.4022c-.9142,0-1.6553-.0555-1.6553.1077v19.8878c.2814-.1622,15.3415-8.2118,16.1691-8.5978.5156.2972,13.6461,7.3385,16.3406,8.8914l-.0008.0007Z"
+            ></path></svg
+          >
         </a>
-
         <!-- Instagram -->
-        <a href="https://instagram.com/bdougieyo" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
+        <a href="https://instagram.com/bdougieyo" class="social-link" aria-label="Instagram">
+          <span class="tooltip">Instagram</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather"
+          >
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -62,23 +123,95 @@ import Layout from '../layouts/Layout.astro';
         </a>
 
         <!-- X.com (Twitter) -->
-        <a href="https://x.com/bdougieyo" class="text-highlight dark:text-text-light hover:text-highlight-light transition-colors" aria-label="X (Twitter)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        <a href="https://x.com/bdougieyo" class="social-link" aria-label="X (Twitter)">
+          <span class="tooltip">X (Twitter)</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="none"
+          >
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+            ></path>
           </svg>
+        </a>
+
+        <!-- DEV.to -->
+        <a href="https://dev.to/bdougieyo" class="social-link" aria-label="DEV.to">
+          <span class="tooltip">DEV.to</span>
+          <svg
+            width="44"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M 2 7 L 2 25 L 30 25 L 30 7 L 2 7
+                  z M 4 9 L 28 9 L 28 23 L 4 23 L 4 9 z M 6 11 L 6 21 L 9 21 C 10.654 21 12
+                  19.654 12 18 L 12 14 C 12 12.346 10.654 11 9 11 L 6 11 z M 16 11 C 14.897 11
+                  14 11.897 14 13 L 14 19 C 14 20.103 14.897 21 16 21 L 18 21 L 18 19 L 16 19 L
+                  16 17 L 18 17 L 18 15 L 16 15 L 16 13 L 18 13 L 18 11 L 16 11 z M 19.691406 11
+                  L 21.775391 20.025391 C 21.907391 20.595391 22.415 21 23 21 C 23.585 21
+                  24.092609 20.595391 24.224609 20.025391 L 26.308594 11 L 24.255859 11 L 23
+                  16.439453 L 21.744141 11 L 19.691406 11 z M 8 13 L 9 13 C 9.552 13 10 13.448
+                  10 14 L 10 18 C 10 18.552 9.552 19 9 19 L 8 19 L 8 13 z"
+            ></path></svg
+          >
         </a>
       </div>
     </div>
-    <footer>
-      <nav class="footer-links">
-        <a href="https://www.heavybit.com/library/podcasts/open-source-ready" target="_blank" rel="noopener noreferrer">podcast</a>
-        <span class="separator">•</span>
-        <a href="https://bdougie.substack.com" target="_blank" rel="noopener noreferrer">newsletter</a>
-        <span class="separator">•</span>
-        <a href="https://briandouglas.me" target="_blank" rel="noopener noreferrer">blog</a>
-      </nav>
-    </footer>
   </main>
+  <footer>
+    <nav class="footer-links">
+      <div class="dropdown">
+        <button class="dropdown-trigger">podcasts</button>
+        <div class="dropdown-content podcast-dropdown" id="podcast-dropdown">
+          <a
+            href="https://www.youtube.com/playlist?list=PLHyZ0Wz_A44VR4BXl_JOWSecQeWcZ-kS3"
+            target="_blank"
+            rel="noopener noreferrer">The Secret Sauce</a
+          >
+          <a href="https://thisdevelopingstory.com/" target="_blank" rel="noopener noreferrer"
+            >This Developing Story</a
+          >
+          <a
+            href="https://www.heavybit.com/library/podcasts/open-source-ready"
+            target="_blank"
+            rel="noopener noreferrer">Open Source Ready</a
+          >
+        </div>
+      </div>
+      <span class="separator">•</span>
+      <div class="dropdown">
+        <button class="dropdown-trigger">newsletter</button>
+        <div class="dropdown-content" id="newsletter-dropdown">
+          <a href="https://opensourceready.substack.com/" target="_blank" rel="noopener noreferrer"
+            >Open Source Ready</a
+          >
+          <a href="https://bdougie.substack.com/" target="_blank" rel="noopener noreferrer"
+            >This Developing Story</a
+          >
+        </div>
+      </div>
+      <span class="separator">•</span>
+      <div class="dropdown">
+        <button class="dropdown-trigger">youtube</button>
+        <div class="dropdown-content" id="youtube-dropdown">
+          <a href="https://youtube.com/@bdougie" target="_blank" rel="noopener noreferrer"
+            >@bdougie</a
+          >
+          <a href="https://youtube.com/@opensauced" target="_blank" rel="noopener noreferrer"
+            >@opensauced</a
+          >
+        </div>
+      </div>
+      <span class="separator">•</span>
+      <a href="https://briandouglas.me" target="_blank" rel="noopener noreferrer">blog</a>
+    </nav>
+  </footer>
 </Layout>
 
 <style>
@@ -119,13 +252,54 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 1rem;
   }
 
-  .social-links a {
+  .social-link {
     color: white;
     transition: opacity 0.2s ease;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .social-links a:hover {
+  .social-link:hover {
     opacity: 0.8;
+  }
+
+  .tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    background-color: hsl(0 0% 100% / 97%);
+    color: hsl(240 10% 3.9%);
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 50;
+    font-weight: 500;
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background-color: hsl(0 0% 100% / 97%);
+  }
+
+  .social-link:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
   }
 
   footer {
@@ -158,4 +332,150 @@ import Layout from '../layouts/Layout.astro';
     color: white;
     opacity: 0.8;
   }
+
+  /* Dropdown styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-trigger {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .dropdown-trigger:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .dropdown-content {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background-color: hsl(0 0% 100% / 97%);
+    min-width: 8rem;
+    white-space: nowrap;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(240 3.7% 15.9%);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow:
+      0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+      0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+    transition: all 0.1s ease-in-out;
+    z-index: 50;
+  }
+
+  .podcast-dropdown {
+    min-width: 12rem;
+  }
+
+  .dropdown-content a {
+    color: hsl(240 10% 3.9%);
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    line-height: 1.25rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: hsl(240 5.9% 90%);
+    color: hsl(240 10% 3.9%);
+  }
+
+  .dropdown-content.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .dropdown-content {
+      background-color: hsl(240 10% 3.9%);
+      border-color: hsl(240 3.7% 15.9%);
+    }
+
+    .dropdown-content a {
+      color: hsl(0 0% 98%);
+    }
+
+    .dropdown-content a:hover {
+      background-color: hsl(240 3.7% 15.9%);
+      color: hsl(0 0% 98%);
+    }
+
+    .tooltip {
+      background-color: hsl(240 10% 3.9%);
+      color: hsl(0 0% 98%);
+    }
+
+    .tooltip::after {
+      background-color: hsl(240 10% 3.9%);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .dropdown-content {
+      position: fixed;
+      bottom: 6rem;
+      left: 1rem;
+      right: 1rem;
+      width: auto;
+      transform: translateY(5px);
+    }
+
+    .dropdown-content.active {
+      transform: translateY(0);
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+
+    dropdownTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        const clickedDropdown = this.nextElementSibling;
+
+        // Close all other dropdowns
+        document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
+          if (dropdown !== clickedDropdown) {
+            dropdown.classList.remove('active');
+          }
+        });
+
+        // Toggle the clicked dropdown
+        clickedDropdown.classList.toggle('active');
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!e.target.matches('.dropdown-trigger') && !e.target.closest('.dropdown-content')) {
+        document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
+          dropdown.classList.remove('active');
+        });
+      }
+    });
+  });
+</script>
