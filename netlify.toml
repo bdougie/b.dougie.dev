@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/passwords/*"
+to = "courageous-duckanoo-13b549.netlify.app/:splat"
+status = 200
+force = true
