@@ -5,7 +5,10 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
   <main>
     <div class="container">
-      <img src="/avatar.png" alt="bdougie" class="avatar" />
+      <picture>
+        <source srcset="/avatar.webp" type="image/webp">
+        <img src="/avatar.png" alt="bdougie" class="avatar" width="200" height="200" loading="eager" fetchpriority="high" />
+      </picture>
       <h1>bdougie</h1>
       <div class="social-links">
         <!-- GitHub -->
@@ -223,7 +226,7 @@ import Layout from '../layouts/Layout.astro';
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ff4500;
+    background-color: #d63500;
     color: white;
     padding: 2rem;
     position: relative;
@@ -311,7 +314,7 @@ import Layout from '../layouts/Layout.astro';
     right: 0;
     padding: 2rem;
     text-align: center;
-    background-color: #ff4500;
+    background-color: #d63500;
   }
 
   .footer-links {
@@ -451,7 +454,7 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  (() => {
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
 
     dropdownTriggers.forEach((trigger) => {
@@ -479,5 +482,5 @@ import Layout from '../layouts/Layout.astro';
         });
       }
     });
-  });
+  })();
 </script>
