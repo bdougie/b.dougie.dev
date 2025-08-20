@@ -5,10 +5,13 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
   <main>
     <div class="container">
-      <picture>
-        <source srcset="/avatar.webp" type="image/webp">
-        <img src="/avatar.png" alt="bdougie" class="avatar" width="200" height="200" loading="eager" fetchpriority="high" />
-      </picture>
+      <div class="avatar-wrapper">
+        <div class="avatar-placeholder"></div>
+        <picture>
+          <source srcset="/avatar.webp" type="image/webp">
+          <img src="/avatar.png" alt="bdougie" class="avatar" width="200" height="200" loading="eager" fetchpriority="high" />
+        </picture>
+      </div>
       <h1>bdougie</h1>
       <div class="social-links">
         <!-- GitHub -->
@@ -237,12 +240,45 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 4rem;
   }
 
+  .avatar-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1rem;
+  }
+
+  .avatar-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QC8RXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAeQAAAHAAAABDAyMjGRAQAHAAAABAECAwCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAABSgAwAEAAAAAQAAABKkBgADAAAAAQAAAAAAAAAA/8AAEQgAEgAUAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQAAv/aAAwDAQACEQMRAD8A4XVNcsvBWlX2t6hn7LYRvLJtGThMngetM+DXxhsvGJTSXtryG7jtFulmu4hELiNm+bZjghNyjI4IIIq54i8PWfiixufDd42231JTDKXIRQsnBO49PrUenfCOz+FWpwPZz3N415ZFs3Um94I+CAg4CqyqvGOwr+XsnyahissxE5L95dcvqley9VfTrpbVH+hHHue4jDZ7gqUb+ycW56N6OSV33s7apNx1bsnr7deeP4rWUQbx8o9aq/8ACx4v7/618u6vqOpNfyGNHZT0O3/69Zn2/Vf+eT/98/8A16+WhlbaT5j9L/1Yw/VH/9Ch4iVfsE/A+6a9J8Tf6b8T/G63n78W2l37RCT5vLZNRKKVz0IXgEdBx0rzjxF/x4T/AO6a9H13/kqHj3/sE6h/6czX8r8J/wACr6r/ANJmf6R8cfFQ/wAM/wD0qkeMzonmH5R+VQ7E/uirNx/rDUFfJo+ye5//2Q==');
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    transform: scale(1.1);
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .avatar-wrapper.loaded .avatar-placeholder {
+    opacity: 0;
+  }
+
   .avatar {
+    position: relative;
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .avatar-wrapper.loaded .avatar {
+    opacity: 1;
   }
 
   h1 {
@@ -455,6 +491,27 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   (() => {
+    // Progressive image loading
+    const avatarWrapper = document.querySelector('.avatar-wrapper');
+    const avatarImg = document.querySelector('.avatar');
+    
+    if (avatarImg && avatarWrapper) {
+      // Check if image is already cached
+      if (avatarImg.complete && avatarImg.naturalHeight !== 0) {
+        avatarWrapper.classList.add('loaded');
+      } else {
+        // Add load event listener
+        avatarImg.addEventListener('load', () => {
+          avatarWrapper.classList.add('loaded');
+        });
+        
+        // Fallback for error cases
+        avatarImg.addEventListener('error', () => {
+          avatarWrapper.classList.add('loaded');
+        });
+      }
+    }
+
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
 
     dropdownTriggers.forEach((trigger) => {
