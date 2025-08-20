@@ -218,8 +218,17 @@ import Layout from '../layouts/Layout.astro';
       <a href="https://briandouglas.me" target="_blank" rel="noopener noreferrer">blog</a>
       <span class="separator">•</span>
       <a href="https://dinnerpeople.app/" target="_blank" rel="noopener noreferrer">dinner</a>
+      <span class="separator mobile-only">•</span>
+      <button class="qr-code-trigger mobile-only" aria-label="Show QR Code">qr code</button>
     </nav>
   </footer>
+  
+  <!-- QR Code Modal -->
+  <dialog id="qr-modal" class="qr-modal">
+    <div class="qr-modal-content">
+      <img src="/qrcode.png" alt="QR Code" width="256" height="256" loading="lazy" />
+    </div>
+  </dialog>
 </Layout>
 
 <style>
@@ -447,6 +456,84 @@ import Layout from '../layouts/Layout.astro';
     transform: translateX(-50%) translateY(0);
   }
 
+  /* QR Code Button and Modal Styles */
+  .mobile-only {
+    display: none;
+  }
+
+  .qr-code-trigger {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    font-family: inherit;
+  }
+
+  .qr-code-trigger:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .qr-modal {
+    position: fixed;
+    margin: auto;
+    border: none;
+    border-radius: 1rem;
+    padding: 0;
+    background: transparent;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: visible;
+  }
+
+  .qr-modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .qr-modal[open] {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .qr-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+
+  .qr-modal img {
+    width: 100%;
+    height: auto;
+    max-width: 256px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Show mobile-only elements on mobile */
+  @media (max-width: 600px) {
+    .mobile-only {
+      display: inline-block;
+    }
+  }
+
   /* Dark mode support */
   @media (prefers-color-scheme: dark) {
     .dropdown-content {
@@ -469,6 +556,10 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .tooltip::after {
+      background-color: hsl(240 10% 3.9%);
+    }
+
+    .qr-modal-content {
       background-color: hsl(240 10% 3.9%);
     }
   }
@@ -539,5 +630,35 @@ import Layout from '../layouts/Layout.astro';
         });
       }
     });
+
+    // QR Code Modal Handler - Non-blocking implementation
+    const qrTrigger = document.querySelector('.qr-code-trigger');
+    const qrModal = document.getElementById('qr-modal');
+
+    if (qrTrigger && qrModal) {
+      // Use passive event listeners for better performance
+      qrTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Use requestAnimationFrame for smooth rendering
+        requestAnimationFrame(() => {
+          qrModal.showModal();
+        });
+      }, { passive: false });
+
+      // Close modal when clicking backdrop or the modal itself
+      qrModal.addEventListener('click', function(e) {
+        requestAnimationFrame(() => {
+          qrModal.close();
+        });
+      }, { passive: true });
+
+      // Close modal with Escape key
+      qrModal.addEventListener('cancel', function(e) {
+        e.preventDefault();
+        requestAnimationFrame(() => {
+          qrModal.close();
+        });
+      }, { passive: false });
+    }
   })();
 </script>
